@@ -43,7 +43,13 @@ def main():
         print("Usage: python app.py <target>")
         sys.exit(1)
         
-    target = sys.argv[1]
+    # Strip whitespace from the target argument
+    target = sys.argv[1].strip()
+    
+    if not target:
+        print("Error: Target cannot be empty")
+        sys.exit(1)
+        
     ensure_output_dir()
     
     # List of traceroute commands to run
