@@ -1,0 +1,20 @@
+runner:
+  name: Traceroute Multiple Ways
+  description: Traceroute Multiple Ways e.g. ICMP, UDP, TCP SYN, TCP ACK, Fragmented Packets
+  version: 0.0.1
+
+build:
+  commands: |
+    echo "START: Building hping3"
+    apt-get update
+    apt-get install -y hping3
+    echo "END: Building hping3"
+
+webform:
+  - name: ip
+    prompt: IP
+    type: text
+
+launch:
+  type: python
+  command: app.py ${ip}
